@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Responsive Navigation Bar</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body onresize="KeepRespo()">
+	<nav class="nav">
+		<h2>LOGO</h2>
+		<ul id="links">
+			<li class="active"><a href="#">HOME</a></li>
+			<li><a href="#">ABOUT</a></li>
+			<li><a href="#">CONTACT</a></li>
+			<li><a href="#">BLOG</a></li>
+		</ul>
+		<img src="img/nav.png" id="img" onclick="toggleFunc()">
+	</nav>
+
+	<script>
+		var up = true;
+		const links = document.getElementById('links');
+		const img = document.getElementById('img');
+
+		const toggleFunc = () => {
+             if (up) {
+             	links.style.display = "block";
+             	up = false;
+             	img.src = "img/close.png";
+             }else {
+             	links.style.display = "none";
+             	up = true;
+             	img.src = "img/nav.png";
+             }
+		}
+
+		const KeepRespo = () =>{
+			let w = window.innerWidth;
+			if(w > 760){
+				links.style.display = "block";
+             	up = false;
+             }else {
+             	links.style.display = "none";
+             	img.src = "img/nav.png";
+             	up = true;
+             }
+		}
+	</script>
+</body>
+</html>
